@@ -120,12 +120,11 @@
 </fieldset>
 
 <script>
-var textChange = document.getElementById("message-to-change");
-var buttonHit = document.getElementById("change-hello-to-goodbye-button")
-function changeText (evt) {
-  textChange.innerText = "Goodbye"
-}
-textChange.addEventListener('click', changeText)
+  function changeText (evt) {
+    document.getElementById('message-to-change').innerHTML = "goodbye";
+  }
+  var changeButton = document.getElementById('change-hello-to-goodbye-button');
+  changeButton.addEventListener('click', changeText);
 </script>
 </script>
 
@@ -387,44 +386,21 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-//not working :/
 
-function guessingGame () {
- 
-    var randomNum = Math.floor((Math.random() * 100) + 1);
-    guess = parseInt(prompt("Guess the random number between 1 and 100.");
-    while (guess !== randomNum) {
-      if (guess > randomNum) {
-        guess = parseInt(prompt("Too high, guess lower");
+function guessingGame(evt) {
+    var number = Math.floor(Math.random() * 100);
+    while (guess !== number) {
+      var guess = parseInt(prompt("guess a number between 1- 100"));
+      if (guess < number) {
+        alert("guess higher");
       }
-      else {
-        guess = parseInt(prompt("Too low, guess higher.");
+      else if (guess > number) {
+        alert("guess lower");
       }
     }
-    alert("You guessed it! Number was " + randomNum);
+    alert("awesome! you guessed the correct number: " + number);
   }
- 
-$("#play-guessing-game").click(guessingGame);
-
-
-// playing = true;
-// while (playing) {
-// function playGame (evt) {
-//   ranNum = Math.floor(Math.random()*100);
-//   var answer = prompt("Guess a number between 1 and 100!");
-//   if(answer > ranNum) { 
-//     alert("Guess lower!"); 
-//   } else if (answer < ranNum) { 
-//     alert("Guess higher!!"); 
-//   } else if (answer == ranNum) { 
-//     alert("Correct!"); 
-//     return true; }
-//   playing = false;
-// }
-// }
-
-
-// $('#play-guessing-game').click(playGame);
+  $("#play-guessing-game").click(playGame);
 
 </script>
 
